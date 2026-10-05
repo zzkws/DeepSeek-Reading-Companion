@@ -114,7 +114,7 @@ function Options() {
           value={s.model}
           onChange={(e) => patch({ model: (e.target as HTMLSelectElement).value as ModelId })}
         >
-          <option value="deepseek-v4-flash">deepseek-v4-flash（推荐 · 响应快）</option>
+          <option value="deepseek-v4-flash">deepseek-v4-flash（默认 · 响应快）</option>
           <option value="deepseek-v4-pro">deepseek-v4-pro（更强，但更慢更贵）</option>
         </select>
         <div class="hint">查词讲究即时反馈，日常用 flash。旧的 deepseek-chat 现在就是它的别名。</div>
@@ -129,7 +129,7 @@ function Options() {
             patch({ trigger: (e.target as HTMLSelectElement).value as Settings["trigger"] })
           }
         >
-          <option value="select">选中即弹出</option>
+          <option value="select">选中即弹出（默认）</option>
           <option value="alt-select">按住 Alt 选中才弹出</option>
         </select>
       </div>
@@ -141,7 +141,7 @@ function Options() {
           value={s.deepThinking ? "on" : "off"}
           onChange={(e) => patch({ deepThinking: (e.target as HTMLSelectElement).value === "on" })}
         >
-          <option value="off">关闭（推荐 · 快 5-10 秒）</option>
+          <option value="off">关闭（默认 · 快 5-10 秒）</option>
           <option value="on">开启（难词可能更准，但要多等）</option>
         </select>
         <div class="hint">v4 系列默认会先思考一轮。思考内容不会显示，只会让你多等，所以默认关掉。</div>
