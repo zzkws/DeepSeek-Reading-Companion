@@ -29,7 +29,7 @@ DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese
 - **PDF reader** — rebuilds columns and paragraphs, joins words split across lines and pages, and keeps figure captions separate. On the Flash model it also hands the current page and earlier pages with figure captions to the vision model, so figures and formulas are read in place.
 - **Local pronunciation** — Kokoro Q8 with the American "Heart" voice. The ~92 MB model is downloaded and verified once, then works offline. Audio is generated when you click the speaker button, or ahead of time as soon as you select (a setting); either way it plays only when you click. Volume adjustable; up to 240 characters.
 - **History** — your last 200 conversations stay on your machine, searchable, each one linked back to its source.
-- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (fixed on the right / beside the selection) and deep thinking are all in settings; the theme follows the system or can be fixed to light or dark.
+- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (fixed on the right / beside the selection) and deep thinking are all in settings; the theme is light by default and can follow the system or be fixed to dark.
 
 ## In use
 

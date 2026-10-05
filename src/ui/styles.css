@@ -47,9 +47,9 @@
   --sn-subtle: light-dark(#f6f7f9, #2d2d31);
   --sn-accent: light-dark(#4d6bfe, #6d88ff);
   --sn-danger: light-dark(#dc2626, #f87171);
-  color-scheme: light dark;
+  color-scheme: light;
 }
-:host([data-theme="light"]) .sn-card { color-scheme: light; }
+:host([data-theme="system"]) .sn-card { color-scheme: light dark; }
 :host([data-theme="dark"]) .sn-card { color-scheme: dark; }
 
 

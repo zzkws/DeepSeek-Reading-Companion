@@ -15,9 +15,9 @@
   --pv-border: light-dark(#d5dbe1, #404852);
   --pv-accent: light-dark(#4d6bfe, #6d88ff);
   --pv-accent-soft: light-dark(#f0f3ff, #2b3045);
-  color-scheme: light dark;
+  color-scheme: light;
 }
-:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="system"] { color-scheme: light dark; }
 :root[data-theme="dark"] { color-scheme: dark; }
 
 

@@ -2,9 +2,9 @@
   --bg: light-dark(#ffffff, #232326); --fg: light-dark(#1f2328, #e6e7ea); --muted: light-dark(#6b7280, #9aa0a8);
   --border: light-dark(#e4e6ea, #34363b); --subtle: light-dark(#f6f7f9, #2d2d31); --accent: light-dark(#4d6bfe, #6d88ff);
   --ok: light-dark(#16a34a, #4ade80); --danger: light-dark(#dc2626, #f87171);
-  color-scheme: light dark;
+  color-scheme: light;
 }
-:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="system"] { color-scheme: light dark; }
 :root[data-theme="dark"] { color-scheme: dark; }
 * { box-sizing: border-box; }
 body {

@@ -198,7 +198,7 @@ function Options() {
           onChange={(e) => patch({ theme: (e.target as HTMLSelectElement).value as Settings["theme"] })}
         >
           <option value="system">跟随系统</option>
-          <option value="light">浅色</option>
+          <option value="light">浅色（默认）</option>
           <option value="dark">深色</option>
         </select>
         <div class="hint">作用于划词卡片、PDF 阅读器、菜单、历史和设置页。</div>
@@ -229,7 +229,7 @@ function Options() {
           value={s.debug ? "on" : "off"}
           onChange={(e) => patch({ debug: (e.target as HTMLSelectElement).value === "on" })}
         >
-          <option value="off">关闭</option>
+          <option value="off">关闭（默认）</option>
           <option value="on">开启</option>
         </select>
         <div class="hint">

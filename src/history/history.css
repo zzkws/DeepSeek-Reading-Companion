@@ -6,9 +6,9 @@
   --h-border: light-dark(#e4e6ea, #34363b);
   --h-accent: light-dark(#4d6bfe, #6d88ff);
   --h-soft: light-dark(#f0f3ff, #2b3045);
-  color-scheme: light dark;
+  color-scheme: light;
 }
-:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="system"] { color-scheme: light dark; }
 :root[data-theme="dark"] { color-scheme: dark; }
 
 
