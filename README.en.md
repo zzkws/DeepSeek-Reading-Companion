@@ -13,13 +13,7 @@
 ![Manifest](https://img.shields.io/badge/Manifest-V3-34A853)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-<p>
-  <a href="docs/posters/01-context-reading.png"><img src="docs/posters/01-context-reading.png" width="31%" alt="Web pages: understand it right beside the source"></a>
-  <a href="docs/posters/02-pdf-reading.png"><img src="docs/posters/02-pdf-reading.png" width="31%" alt="Papers: understanding never leaves the text"></a>
-  <a href="docs/posters/03-local-pronunciation.png"><img src="docs/posters/03-local-pronunciation.png" width="31%" alt="Local pronunciation: read it, and hear it"></a>
-</p>
-
-<sub>Posters are illustrations (click to enlarge); see <em>In use</em> below for real screenshots.</sub>
+<img src="docs/screenshots/term.png" width="720" alt="Selecting calibrated probabilities in a technical article; the explanation appears beside the source">
 
 </div>
 
@@ -39,13 +33,11 @@ DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese
 
 ## In use
 
-**A term, put back into its paragraph.** Technical words are rarely hard on their own; what is hard is what they mean *here*. Select `calibrated probabilities` and the card first defines it, then explains how it relates to the answers the text describes.
-
-![Selecting "calibrated probabilities" in a technical article; the explanation appears beside the source](docs/screenshots/web-selection.png)
+**A term, put back into its paragraph.** Technical words are rarely hard on their own; what is hard is what they mean *here*. Select `calibrated probabilities` and the card first defines it, then explains how it relates to the answers the text describes (the image at the top).
 
 **Follow the argument.** At `Verifiable problems`, a dictionary gloss of "verifiable" doesn't connect to the article. The companion explains it within the paragraph: problems whose correctness can be checked cheaply and automatically, illustrated in the text by math proofs and kernel optimisation. Need more? Type a follow-up at the bottom of the card.
 
-![Selecting "Verifiable problems", with the explanation and the follow-up box](docs/screenshots/web-follow-up.png)
+<img src="docs/screenshots/follow-up.png" width="570" alt="Selecting Verifiable problems: the card explains it within the paragraph, with a follow-up box at the bottom (dark theme)">
 
 ## Requirements
 
@@ -179,6 +171,7 @@ Load the generated `dist/` in `chrome://extensions` to try it.
 | `npm run typecheck` | TypeScript type check only |
 | `npm run zip` | Build and package `deepseek-reading-companion.zip` |
 | `npm run icons` | Regenerate the toolbar icons |
+| `npm run screenshots` | Re-render the README images from the extension's real card component (needs Chrome installed) |
 
 Pushing a `v*` tag makes GitHub Actions build and publish a release. Regression scripts for PDF text reconstruction and selection completion live in `scripts/`; see [docs/reading-pipeline.md](docs/reading-pipeline.md) (in Chinese).
 

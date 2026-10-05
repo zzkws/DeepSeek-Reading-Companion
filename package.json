@@ -11,6 +11,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "icons": "node scripts/make-icons.mjs",
+    "screenshots": "node scripts/render-screenshots/render.mjs",
     "preview": "npm run build && node scripts/serve-dist.mjs",
     "zip": "npm run build && node scripts/zip.mjs",
     "build:only": "vite build",

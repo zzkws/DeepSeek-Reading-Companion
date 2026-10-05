@@ -13,13 +13,7 @@
 ![Manifest](https://img.shields.io/badge/Manifest-V3-34A853)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-<p>
-  <a href="docs/posters/01-context-reading.png"><img src="docs/posters/01-context-reading.png" width="31%" alt="网页划词：读到哪里，就在原文旁理解到哪里"></a>
-  <a href="docs/posters/02-pdf-reading.png"><img src="docs/posters/02-pdf-reading.png" width="31%" alt="论文 PDF：读论文，理解不离开原文"></a>
-  <a href="docs/posters/03-local-pronunciation.png"><img src="docs/posters/03-local-pronunciation.png" width="31%" alt="本地发音：看懂它，也听见它"></a>
-</p>
-
-<sub>海报为界面示意，点击看大图；实际使用画面见下方「阅读场景」。</sub>
+<img src="docs/screenshots/term.png" width="720" alt="在英文技术文章中选中 calibrated probabilities，DeepSeek 伴读在原文旁给出解释">
 
 </div>
 
@@ -37,13 +31,11 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 
 ## 阅读场景
 
-**一个术语，放回这一段。** 技术文章里的词未必难，难的是它在这一段里指什么。选中 `calibrated probabilities`，卡片先给出「校准概率」的含义，再说明它和原文所述答案的关系。
-
-![在英文技术文章中选中 calibrated probabilities，DeepSeek 伴读贴着原文解释](docs/screenshots/web-selection.png)
+**一个术语，放回这一段。** 技术文章里的词未必难，难的是它在这一段里指什么。选中 `calibrated probabilities`，卡片先给出「校准概率」的含义，再说明它和原文所述答案的关系（见页首图）。
 
 **顺着论述继续问。** 读到 `Verifiable problems`，单独翻出「可验证」还接不上文章。伴读沿着所在段落说明：这类问题的正确性可以低成本、自动地检查，原文举了数学证明与内核优化的例子。还想再问，直接在卡片底部输入。
 
-![在使用场景段落中选中 Verifiable problems，查看解释与就地追问入口](docs/screenshots/web-follow-up.png)
+<img src="docs/screenshots/follow-up.png" width="570" alt="选中 Verifiable problems，卡片沿段落解释，底部可以接着追问（深色主题）">
 
 ## 环境要求
 
@@ -162,6 +154,7 @@ npm run build      # 类型检查 + 构建到 dist/
 | `npm run typecheck` | 只做 TypeScript 类型检查 |
 | `npm run zip` | 构建并打包成 `deepseek-reading-companion.zip` |
 | `npm run icons` | 重新生成工具栏图标 |
+| `npm run screenshots` | 用扩展真实的卡片组件重新渲染 README 截图（需要本机装有 Chrome） |
 
 推送 `v*` 标签会触发 GitHub Actions，自动构建并发布 Release。PDF 文本整理和选区补齐的回归脚本在 `scripts/` 里，用法见 [docs/reading-pipeline.md](docs/reading-pipeline.md)。
 

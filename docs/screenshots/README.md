@@ -1,8 +1,8 @@
-# 产品界面素材
+# README 截图
 
-当前 README 使用两张实际阅读场景截图：
+两张图都由 `npm run screenshots`（`scripts/render-screenshots/`）生成：把扩展真实的卡片组件
+`src/ui/Popup.tsx` 和样式 `src/ui/styles.css` 挂到一页英文正文旁边，用无界面 Chrome 截图。
+卡片里的回答原样取自真实使用时 DeepSeek 给出的输出，不是编写的示例；界面改动后重新运行即可更新。
 
-- [`web-selection.png`](web-selection.png)：技术文章中的 `calibrated probabilities`，展示原文旁的解释与发音入口。
-- [`web-follow-up.png`](web-follow-up.png)：使用场景段落中的 `Verifiable problems`，展示上下文解释与追问入口。
-
-后续海报应以这两处真实阅读场景和当前产品界面为依据。
+- [`term.png`](term.png)：选中 `calibrated probabilities`，浅色主题，README 页首图。
+- [`follow-up.png`](follow-up.png)：选中 `Verifiable problems`，深色主题，展示沿段落解释与追问入口。
