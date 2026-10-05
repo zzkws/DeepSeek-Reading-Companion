@@ -50,7 +50,69 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 - Chrome 116 或更新版本
 - 你自己的 [DeepSeek API Key](https://platform.deepseek.com/api_keys)（调用费用计入你的账户）
 
-## 安装
+## 用 Claude Code 安装
+
+如果你在用 [Claude Code](https://claude.com/claude-code)，点代码块右上角复制下面这段 prompt，原样粘贴给它即可。它会先审查源码，再从审查过的代码构建（没有 Node.js 时改用预构建安装包），然后一步步指导你在 Chrome 里加载、验证。API Key 由你自己填在扩展的设置页里，不会经过它。
+
+```text
+请帮我安装 Chrome 扩展「DeepSeek 伴读」（https://github.com/zzkws/DeepSeek-Reading-Companion）。它能在
+英文网页和 PDF 上划词，用 DeepSeek 结合上下文给出中文解释，还能在本地发音。请按下面的步骤审查、准备，
+并指导我装好它，过程中把你的发现告诉我。
+
+1. 检查环境
+   - 确认装了 Chrome 116 或更新版本，告诉我版本号。
+   - 看看有没有 git 和 Node.js 22（`node --version`）。没有 Node.js 也可以，第 4 步会改用预构建的安装包。
+
+2. 获取代码
+   - 把仓库克隆到一个固定目录：Windows 用 %USERPROFILE%\DeepSeek-Reading-Companion，macOS / Linux 用
+     ~/DeepSeek-Reading-Companion，除非我指定了别的位置。Chrome 会一直从这里加载扩展，以后不能删除或移动它。
+   - 切到最新 Release 的标签（用 `gh release view` 或 GitHub 的 Releases 页面查，例如 v0.3.0）。
+
+3. 安装前先审查代码
+   - 读 `manifest.config.ts`，以及 `src/background`、`src/content`、`src/pdf`、`src/speech`、`src/shared`
+     下的文件。
+   - 核对它的行为是否和下面的清单一致；清单之外的任何行为（尤其是别的网络请求、统计上报、执行远程代码），
+     先报告给我再继续：
+     * 联网：只请求设置里的 API 地址（默认 https://api.deepseek.com）的 /chat/completions；发音模型从本项目的
+       GitHub Release 下载，Hugging Face 作备用源，下载后做 SHA-256 校验；PDF 阅读器只有用 `?file=<网址>`
+       打开时，才会去下载那份 PDF。
+     * 发出的内容：选中的词句，加上从文章开头到选区之后约 1000 字的上下文（文章超过 16 万字时，只发开头
+       1.2 万字和选区附近的内容）；用 Flash 模型查 PDF 时，附带最多 12 页的页图。
+     * 本地存储：API Key、设置和最多 200 条历史在 chrome.storage.local；发音模型在 Cache Storage。
+     * 权限：storage、offscreen、unlimitedStorage；内容脚本运行在所有 http(s) 页面的主框架里；
+       host_permissions 只有 DeepSeek API，以及 Hugging Face 和 GitHub 的下载地址。
+     * 不执行任何远程下载的 JavaScript 或 WebAssembly（见 manifest 里的 content_security_policy）。
+
+4. 准备要加载的目录
+   - 有 Node.js 22 时，从审查过的源码构建：`npm ci`，再 `npm run build`，要加载的目录就是 `dist`。这样装上的
+     正是你审查过的代码。较新版本的 npm 可能提示一些依赖的安装脚本被拦截了，保持拦截即可，构建用不到它们；
+     只有构建失败时才考虑放行，放行前先问我。
+   - 没有 Node.js，或者构建失败，就从同一个 Release 下载 `deepseek-reading-companion.zip`，解压到仓库里的
+     `release` 目录，要加载的就是它。这个安装包由 `.github/workflows/release.yml` 在 GitHub 上从同一个标签构建。
+   - 确认目录里有 `manifest.json`，然后告诉我这个目录的完整路径。
+
+5. 指导我加载（这一步要我自己在 Chrome 里点，你没法替我完成）
+   - 让我打开 chrome://extensions，开启右上角的「开发者模式」，点「加载已解压的扩展程序」，选第 4 步的目录。
+   - 设置页会自动打开。我会自己在那里填 DeepSeek API Key（https://platform.deepseek.com/api_keys），点「测试
+     连接」再保存。不要让我把 Key 发给你，也不要把它写进任何文件。
+   - 提醒我留在设置页，等发音模型下载完（约 92 MB）。
+
+6. 验证
+   - 请我打开任意一篇英文网页，选中一个词，确认旁边弹出了解释卡片；再点卡片标题旁的扬声器听发音。
+   - 哪一步不对就帮我排查：先看 chrome://extensions 里这个扩展有没有报错，再看设置页的连接测试结果。
+
+7. 交接
+   - 给我讲清楚怎么用：直接选中就会弹出（如果设置成「按住 Alt 选中」，就按住 Alt 再选）；卡片底部可以追问，
+     按 Enter 发送；Esc 关闭；读 PDF 要点工具栏图标打开「PDF 阅读器」，再把文件拖进去；工具栏图标里还有
+     「历史对话」和「设置」。
+   - 告诉我怎么升级：在仓库里 `git fetch --tags`，切到新的标签后重新构建（或下载新的安装包覆盖 `release`
+     目录），然后在 chrome://extensions 里重新加载扩展，并刷新已经打开的页面。
+   - 告诉我怎么卸载：在 chrome://extensions 里移除扩展，再删除整个目录。
+
+不要修改项目代码；任何全局安装都要先问过我。
+```
+
+## 手动安装
 
 1. 从[最新版本](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest)下载 `deepseek-reading-companion.zip`，解压到一个固定的目录。
 2. 打开 `chrome://extensions`，开启右上角的「开发者模式」，点「加载已解压的扩展程序」，选择解压后的目录。
