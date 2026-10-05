@@ -17,19 +17,19 @@
 
 </div>
 
-DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese-speaking readers of English** web pages and paper PDFs. Select a word or a sentence and DeepSeek explains it **in Chinese**, using the surrounding text and following the source's own argument. Ask follow-up questions in the same card, or listen to the English pronunciation. The explanation sits right next to your selection, so you keep reading instead of bouncing between the page and a chat window.
+DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese-speaking readers of English** web pages and paper PDFs. Select a word or a sentence and DeepSeek explains it **in Chinese**, using the surrounding text and following the source's own argument. Ask follow-up questions in the same card, or listen to the English pronunciation. The explanation appears on the page itself, level with the line you selected, so you keep reading instead of bouncing between the page and a chat window.
 
 > The interface and the explanations are in Chinese.
 
 ## Features
 
 - **Faithful to the source** — keeps the text's subjects, terms and order of argument, and its comparisons, qualifications and uncertainty. It says what the selection means first, then the relationships the text actually establishes, in plain paragraphs instead of dictionary-style templates.
-- **Ask in place** — the card opens beside the selection and streams its answer; follow-up questions reuse the same context and conversation, with the source still on screen.
+- **Ask in place** — the card opens on the page and streams its answer; follow-up questions reuse the same context and conversation, with the source still on screen.
 - **Smart selection** — half-selected words are completed to whole words; in PDFs, selecting either half of a word hyphenated across lines still gives you the full word.
 - **PDF reader** — rebuilds columns and paragraphs, joins words split across lines and pages, and keeps figure captions separate. On the Flash model it also hands the current page and earlier pages with figure captions to the vision model, so figures and formulas are read in place.
 - **Local pronunciation** — Kokoro Q8 with the American "Heart" voice. The ~92 MB model is downloaded and verified once, then works offline. Audio is generated when you click the speaker button, or ahead of time as soon as you select (a setting); either way it plays only when you click. Volume adjustable; up to 240 characters.
 - **History** — your last 200 conversations stay on your machine, searchable, each one linked back to its source.
-- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (beside the selection / fixed on the right) and deep thinking are all in settings; the theme follows the system or can be fixed to light or dark.
+- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (fixed on the right / beside the selection) and deep thinking are all in settings; the theme follows the system or can be fixed to light or dark.
 
 ## In use
 
@@ -103,7 +103,7 @@ it and guide me through installing it, step by step, and tell me what you find a
    - Remind me to stay on the settings page until the speech model (about 92 MB) has finished downloading.
 
 6. Verify
-   - Ask me to open any English web page, select a word and confirm the explanation card appears beside it,
+   - Ask me to open any English web page, select a word and confirm the explanation card appears on the right,
      then click the speaker next to the card title to hear it.
    - If anything is off, help me troubleshoot: check this extension's errors in chrome://extensions first,
      then the connection test on the settings page.

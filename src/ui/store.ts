@@ -5,7 +5,7 @@ export type Status = "loading" | "streaming" | "done" | "error";
 
 export const visible = signal(false);
 /** 卡片停靠方式，跟设置页同步 */
-export const placement = signal<Settings["placement"]>("follow");
+export const placement = signal<Settings["placement"]>("right");
 export const speechTrigger = signal<Settings["speechTrigger"]>("manual");
 export const speechVolume = signal(100);
 export const word = signal("");

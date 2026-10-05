@@ -213,10 +213,11 @@ function Options() {
             patch({ placement: (e.target as HTMLSelectElement).value as Settings["placement"] })
           }
         >
-          <option value="follow">贴着选中的词（推荐）</option>
-          <option value="right">固定在视口右侧</option>
+          <option value="follow">贴着选中的词</option>
+          <option value="right">固定在视口右侧（默认）</option>
         </select>
         <div class="hint">
+          固定在视口右侧：卡片靠窗口右边，与选中的那一行同高。
           贴着选中的词：从词的右侧展开，正文首行与选中的字上缘齐平；右侧放不下会先压窄，再整体往左挤。
         </div>
       </div>

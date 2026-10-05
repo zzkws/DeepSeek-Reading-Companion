@@ -27,7 +27,7 @@ export const DEFAULT_SETTINGS: Settings = {
   model: "deepseek-v4-flash",
   baseUrl: "https://api.deepseek.com",
   trigger: "select",
-  placement: "follow",
+  placement: "right",
   theme: "system",
   speechTrigger: "manual",
   speechVolume: 100,
