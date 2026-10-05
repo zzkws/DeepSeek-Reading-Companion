@@ -50,7 +50,7 @@ Chrome 扩展 · 网页与 PDF · 原文上下文 · 就地追问 · Kokoro 本�
 
 需要 Chrome 116 或更新版本，以及自己的 [DeepSeek API Key](https://platform.deepseek.com/api_keys)。
 
-1. 从[最新版本](https://github.com/zzkws/deepseek-reading-companion/releases/latest)下载 `deepseek-reading-companion.zip`，解压到固定目录。
+1. 从[最新版本](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest)下载 `deepseek-reading-companion.zip`，解压到固定目录。
 2. 打开 `chrome://extensions`，启用开发者模式，点击「加载已解压的扩展程序」，选择解压后的目录。
 3. 在自动打开的设置页填写 API Key，测试连接并保存；语音模型的下载进度也在这里显示。
 4. 在网页中直接划词；阅读 PDF 时，从扩展菜单打开 PDF 阅读器并拖入文件。
@@ -60,8 +60,8 @@ Chrome 扩展 · 网页与 PDF · 原文上下文 · 就地追问 · Kokoro 本�
 从源码构建：
 
 ```bash
-git clone https://github.com/zzkws/deepseek-reading-companion.git
-cd deepseek-reading-companion
+git clone https://github.com/zzkws/DeepSeek-Reading-Companion.git
+cd DeepSeek-Reading-Companion
 npm ci
 npm run build
 ```
@@ -72,7 +72,7 @@ npm run build
 
 解释和追问需要联网。选中内容、所需前后文，以及 PDF 查询涉及的页图会发送到设置中的 API 地址，默认是 DeepSeek；API 调用使用你的账户。API Key 与对话历史保存在本机 `chrome.storage.local`。
 
-Kokoro [Q8 模型](https://github.com/zzkws/deepseek-reading-companion/releases/tag/kokoro-v1.0-q8)下载后经过 SHA-256 校验，发音文本在本机处理。PDF 扫描件没有可选择的文字层时暂不能直接划词；复杂公式和表格需要结合原页核对。网页 iframe 内的选区暂不支持。
+Kokoro [Q8 模型](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/tag/kokoro-v1.0-q8)下载后经过 SHA-256 校验，发音文本在本机处理。PDF 扫描件没有可选择的文字层时暂不能直接划词；复杂公式和表格需要结合原页核对。网页 iframe 内的选区暂不支持。
 
 阅读链路与验证见 [docs/reading-pipeline.md](docs/reading-pipeline.md)，回答原则见 [src/background/prompt.ts](src/background/prompt.ts)。
 
