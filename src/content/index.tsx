@@ -1,6 +1,7 @@
 import { render } from "preact";
 import { saveConversation } from "../shared/history";
 import { loadSettings } from "../shared/settings";
+import { applyTheme } from "../shared/theme";
 import {
   PORT_NAME,
   type ClientMessage,
@@ -171,6 +172,7 @@ function applySettings(s: Settings) {
   placement.value = s.placement;
   speechTrigger.value = s.speechTrigger;
   speechVolume.value = s.speechVolume;
+  applyTheme(host, s.theme);
 }
 
 void loadSettings().then(applySettings);

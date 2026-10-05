@@ -6,6 +6,7 @@
  */
 import { render } from "preact";
 import css from "../../src/ui/styles.css?inline";
+import { applyTheme } from "../../src/shared/theme";
 import { Popup } from "../../src/ui/Popup";
 import { anchor, placement, status, thread, visible, word } from "../../src/ui/store";
 
@@ -77,16 +78,13 @@ for (const [lead, text] of scene.paragraphs) {
   article.append(p);
 }
 
-// 2. 卡片：与内容脚本相同，挂在 Shadow DOM 里；主题按参数固定，不跟随截图机器的系统设置
+// 2. 卡片：与内容脚本相同，挂在 Shadow DOM 里；主题用扩展自己的开关固定，不跟随截图机器的系统设置
 const host = document.createElement("div");
 host.style.cssText = "position:fixed;top:0;left:0;width:0;height:0;";
+applyTheme(host, theme);
 const shadow = host.attachShadow({ mode: "open" });
 const style = document.createElement("style");
-// 构建时 CSS 会被压缩（空格可能被去掉），所以用正则匹配
-style.textContent = css.replace(
-  /@media\s*\(\s*prefers-color-scheme\s*:\s*dark\s*\)/g,
-  theme === "dark" ? "@media all" : "@media not all",
-);
+style.textContent = css;
 const mount = document.createElement("div");
 shadow.append(style, mount);
 document.body.append(host);

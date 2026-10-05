@@ -7,6 +7,7 @@ import {
   type Conversation,
 } from "../shared/history";
 import { Markdown } from "../ui/Markdown";
+import { syncPageTheme } from "../shared/theme";
 import "./history.css";
 
 function dayLabel(ts: number): string {
@@ -150,4 +151,5 @@ function App() {
 }
 
 const root = document.getElementById("app");
+syncPageTheme();
 if (root) render(<App />, root);

@@ -1,6 +1,7 @@
 import { render } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { loadSettings, saveSettings } from "../shared/settings";
+import { applyTheme } from "../shared/theme";
 import { DEFAULT_SETTINGS, type ModelId, type Settings } from "../shared/types";
 import "./options.css";
 import { SpeechSettings } from "./SpeechSettings";
@@ -17,6 +18,9 @@ function Options() {
       setLoaded(true);
     });
   }, []);
+
+  // 选中即在本页预览；点「保存」后卡片、阅读器等其它界面才跟着变
+  useEffect(() => applyTheme(document.documentElement, s.theme), [s.theme]);
 
   const patch = (p: Partial<Settings>) => {
     setS((prev) => ({ ...prev, ...p }));
@@ -159,6 +163,20 @@ function Options() {
           onInput={(e) => patch({ baseUrl: (e.target as HTMLInputElement).value })}
         />
         <div class="hint">默认 https://api.deepseek.com。改动后需同步修改 manifest 的 host_permissions。</div>
+      </div>
+
+      <div class="field">
+        <label for="theme">主题</label>
+        <select
+          id="theme"
+          value={s.theme}
+          onChange={(e) => patch({ theme: (e.target as HTMLSelectElement).value as Settings["theme"] })}
+        >
+          <option value="system">跟随系统</option>
+          <option value="light">浅色</option>
+          <option value="dark">深色</option>
+        </select>
+        <div class="hint">作用于划词卡片、PDF 阅读器、菜单、历史和设置页。</div>
       </div>
 
       <div class="field">

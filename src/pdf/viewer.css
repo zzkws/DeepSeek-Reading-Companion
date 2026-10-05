@@ -1,6 +1,6 @@
 /* 学术阅读器：深色克制顶栏、中性灰阅读台、纯白纸张 */
 :root {
-  --pv-bg: #eef1f4;
+  --pv-bg: light-dark(#eef1f4, #1f2328);
   /* 与 Chrome PDF 查看器接近，只用于白色页面周围的阅读工作区 */
   --pv-reader-bg: #a3a3a3;
   --pv-reader-fg: #30343a;
@@ -9,27 +9,17 @@
   --pv-toolbar-border: #45474b;
   --pv-toolbar-fg: #f1f3f4;
   --pv-toolbar-muted: #bdc1c6;
-  --pv-surface: #ffffff;
-  --pv-fg: #20242a;
-  --pv-muted: #66707b;
-  --pv-border: #d5dbe1;
-  --pv-accent: #4d6bfe;
-  --pv-accent-soft: #f0f3ff;
-  color-scheme: light;
+  --pv-surface: light-dark(#ffffff, #292e35);
+  --pv-fg: light-dark(#20242a, #f1f3f5);
+  --pv-muted: light-dark(#66707b, #aeb5be);
+  --pv-border: light-dark(#d5dbe1, #404852);
+  --pv-accent: light-dark(#4d6bfe, #6d88ff);
+  --pv-accent-soft: light-dark(#f0f3ff, #2b3045);
+  color-scheme: light dark;
 }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --pv-bg: #1f2328;
-    --pv-surface: #292e35;
-    --pv-fg: #f1f3f5;
-    --pv-muted: #aeb5be;
-    --pv-border: #404852;
-    --pv-accent: #6d88ff;
-    --pv-accent-soft: #2b3045;
-    color-scheme: dark;
-  }
-}
 
 * { box-sizing: border-box; }
 

@@ -40,26 +40,18 @@
 
 /* ---------- 主题 ---------- */
 .sn-card {
-  --sn-bg: #ffffff;
-  --sn-fg: #1f2328;
-  --sn-muted: #6b7280;
-  --sn-border: #e4e6ea;
-  --sn-subtle: #f6f7f9;
-  --sn-accent: #4d6bfe;
-  --sn-danger: #dc2626;
+  --sn-bg: light-dark(#ffffff, #232326);
+  --sn-fg: light-dark(#1f2328, #e6e7ea);
+  --sn-muted: light-dark(#6b7280, #9aa0a8);
+  --sn-border: light-dark(#e4e6ea, #34363b);
+  --sn-subtle: light-dark(#f6f7f9, #2d2d31);
+  --sn-accent: light-dark(#4d6bfe, #6d88ff);
+  --sn-danger: light-dark(#dc2626, #f87171);
+  color-scheme: light dark;
 }
+:host([data-theme="light"]) .sn-card { color-scheme: light; }
+:host([data-theme="dark"]) .sn-card { color-scheme: dark; }
 
-@media (prefers-color-scheme: dark) {
-  .sn-card {
-    --sn-bg: #232326;
-    --sn-fg: #e6e7ea;
-    --sn-muted: #9aa0a8;
-    --sn-border: #34363b;
-    --sn-subtle: #2d2d31;
-    --sn-accent: #6d88ff;
-    --sn-danger: #f87171;
-  }
-}
 
 /* ---------- 头部 ---------- */
 .sn-head {

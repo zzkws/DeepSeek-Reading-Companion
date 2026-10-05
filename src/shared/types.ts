@@ -10,6 +10,8 @@ export interface Settings {
   trigger: "select" | "alt-select";
   /** 卡片停靠：贴着选中的词 / 固定在视口右缘 */
   placement: "follow" | "right";
+  /** 界面主题：跟随系统 / 浅色 / 深色。作用于卡片、PDF 阅读器、菜单、历史和设置页 */
+  theme: "system" | "light" | "dark";
   /** 发音：点击词旁按钮，或选中后后台预生成 */
   speechTrigger: "manual" | "selection";
   /** 发音播放音量，0–100 */
@@ -26,6 +28,7 @@ export const DEFAULT_SETTINGS: Settings = {
   baseUrl: "https://api.deepseek.com",
   trigger: "select",
   placement: "follow",
+  theme: "system",
   speechTrigger: "manual",
   speechVolume: 100,
   deepThinking: false,

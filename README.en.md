@@ -9,7 +9,7 @@
 [简体中文](README.md) · English
 
 [![Release](https://img.shields.io/github/v/release/zzkws/DeepSeek-Reading-Companion?sort=semver&label=release)](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest)
-![Chrome](https://img.shields.io/badge/Chrome-116%2B-4285F4)
+![Chrome](https://img.shields.io/badge/Chrome-123%2B-4285F4)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-34A853)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -29,7 +29,7 @@ DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese
 - **PDF reader** — rebuilds columns and paragraphs, joins words split across lines and pages, and keeps figure captions separate. On the Flash model it also hands the current page and earlier pages with figure captions to the vision model, so figures and formulas are read in place.
 - **Local pronunciation** — Kokoro Q8 with the American "Heart" voice. The ~92 MB model is downloaded and verified once, then works offline. Generate on click or ahead of time; volume adjustable; up to 240 characters.
 - **History** — your last 200 conversations stay on your machine, searchable, each one linked back to its source.
-- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (beside the selection / fixed on the right) and deep thinking are all in settings; light and dark themes follow the system.
+- **Your way** — model (Flash / Pro), trigger (select, or Alt + select), card position (beside the selection / fixed on the right) and deep thinking are all in settings; the theme follows the system or can be fixed to light or dark.
 
 ## In use
 
@@ -41,7 +41,7 @@ DeepSeek Reading Companion (DeepSeek 伴读) is a Chrome extension for **Chinese
 
 ## Requirements
 
-- Chrome 116 or newer
+- Chrome 123 or newer
 - Your own [DeepSeek API key](https://platform.deepseek.com/api_keys) (usage is billed to your account)
 
 ## Install with Claude Code
@@ -55,7 +55,7 @@ PDFs in Chinese, using DeepSeek and the surrounding context, and can pronounce i
 it and guide me through installing it, step by step, and tell me what you find along the way.
 
 1. Check the environment
-   - Confirm Chrome 116 or newer is installed and tell me the version.
+   - Confirm Chrome 123 or newer is installed and tell me the version.
    - Check for git and Node.js 22 (`node --version`). Node.js is optional; without it, step 4 uses the
      prebuilt package instead.
 
@@ -139,7 +139,7 @@ To upgrade, replace the files in that folder, reload the extension in `chrome://
 | Hear it | Click the speaker next to the card title |
 | Close the card | <kbd>Esc</kbd> or × |
 | Find past lookups | Toolbar icon → *History* (历史对话) |
-| Change settings | Toolbar icon → *Settings* (设置): API key, API URL, model, deep thinking, trigger, card position, speech |
+| Change settings | Toolbar icon → *Settings* (设置): API key, API URL, model, deep thinking, trigger, theme, card position, speech |
 
 Chrome's built-in PDF viewer doesn't expose selections, so PDFs open in the extension's own reader.
 

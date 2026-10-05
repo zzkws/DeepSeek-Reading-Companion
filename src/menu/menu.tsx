@@ -1,4 +1,5 @@
 import { render } from "preact";
+import { syncPageTheme } from "../shared/theme";
 import "./menu.css";
 
 /** 点工具栏图标弹出的小菜单。设置页太深，PDF 阅读器得摆在一眼能看见的地方。 */
@@ -33,4 +34,5 @@ function Menu() {
 }
 
 const root = document.getElementById("app");
+syncPageTheme();
 if (root) render(<Menu />, root);

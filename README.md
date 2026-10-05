@@ -9,7 +9,7 @@
 简体中文 · [English](README.en.md)
 
 [![Release](https://img.shields.io/github/v/release/zzkws/DeepSeek-Reading-Companion?sort=semver&label=release)](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest)
-![Chrome](https://img.shields.io/badge/Chrome-116%2B-4285F4)
+![Chrome](https://img.shields.io/badge/Chrome-123%2B-4285F4)
 ![Manifest](https://img.shields.io/badge/Manifest-V3-34A853)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -27,7 +27,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 - **PDF 阅读器**：按栏与段落整理文字，合并跨行、跨页的断词，图注单独存放；使用 Flash 模型时，会把当前页和前面带图注的页面一起交给视觉模型，图表和公式也能对照着讲。
 - **本地发音**：Kokoro Q8 美式 Heart 音色，模型约 92 MB，首次下载并校验后离线可用；可选「点击后生成」或「选中后预先生成」，音量可调，最多 240 个字符。
 - **历史对话**：最近 200 条保存在本机，可以搜索，也能回到原文。
-- **按你的习惯来**：模型（Flash / Pro）、触发方式（选中即弹出 / 按住 Alt 选中）、浮层位置（贴着选区 / 固定在右侧）、深度思考都可在设置里调；界面随系统切换深浅主题。
+- **按你的习惯来**：模型（Flash / Pro）、触发方式（选中即弹出 / 按住 Alt 选中）、浮层位置（贴着选区 / 固定在右侧）、深度思考都可在设置里调；主题可以跟随系统，也可以固定为浅色或深色。
 
 ## 阅读场景
 
@@ -39,7 +39,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 
 ## 环境要求
 
-- Chrome 116 或更新版本
+- Chrome 123 或更新版本
 - 你自己的 [DeepSeek API Key](https://platform.deepseek.com/api_keys)（调用费用计入你的账户）
 
 ## 用 Claude Code 安装
@@ -52,7 +52,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 并指导我装好它，过程中把你的发现告诉我。
 
 1. 检查环境
-   - 确认装了 Chrome 116 或更新版本，告诉我版本号。
+   - 确认装了 Chrome 123 或更新版本，告诉我版本号。
    - 看看有没有 git 和 Node.js 22（`node --version`）。没有 Node.js 也可以，第 4 步会改用预构建的安装包。
 
 2. 获取代码
@@ -122,7 +122,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 | 听发音 | 点卡片标题旁的扬声器 |
 | 关闭卡片 | <kbd>Esc</kbd> 或点 × |
 | 找回查过的内容 | 工具栏图标 →「历史对话」 |
-| 改设置 | 工具栏图标 →「设置」：API Key、API 地址、模型、深度思考、触发方式、浮层位置、发音 |
+| 改设置 | 工具栏图标 →「设置」：API Key、API 地址、模型、深度思考、触发方式、主题、浮层位置、发音 |
 
 Chrome 自带的 PDF 查看器拿不到选区，所以 PDF 要在扩展自己的阅读器里打开。
 

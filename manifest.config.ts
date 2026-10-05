@@ -7,7 +7,7 @@ export default defineManifest({
   version: pkg.version,
   description: pkg.description,
 
-  minimum_chrome_version: "116",
+  minimum_chrome_version: "123",
   // Model cache should not be evicted under ordinary website storage pressure.
   permissions: ["storage", "offscreen", "unlimitedStorage"],
   host_permissions: ["https://api.deepseek.com/*", "https://huggingface.co/*", "https://*.hf.co/*",
