@@ -98,8 +98,8 @@ it and guide me through installing it, step by step, and tell me what you find a
    - Have me open chrome://extensions, turn on Developer mode (top right), click "Load unpacked" and pick
      the folder from step 4.
    - The settings page opens automatically. I will enter my DeepSeek API key there myself
-     (https://platform.deepseek.com/api_keys), test the connection and save. Don't ask me to send you the
-     key, and don't write it into any file.
+     (https://platform.deepseek.com/api_keys) and test the connection; settings save automatically. Don't
+     ask me to send you the key, and don't write it into any file.
    - Remind me to stay on the settings page until the speech model (about 92 MB) has finished downloading.
 
 6. Verify
@@ -125,7 +125,7 @@ Don't change the project's code, and ask me before installing anything globally.
 
 1. Download `deepseek-reading-companion.zip` from the [latest release](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest) and unzip it into a permanent folder.
 2. Open `chrome://extensions`, turn on **Developer mode** (top right), click **Load unpacked** and pick the unzipped folder.
-3. The settings page opens automatically: enter your API key, test the connection and save. The pronunciation model's download progress is shown there too.
+3. The settings page opens automatically: enter your API key and click 测试连接 (Test connection) to check it. Changes save automatically. The pronunciation model's download progress is shown there too.
 
 To upgrade, replace the files in that folder, reload the extension in `chrome://extensions`, and refresh any pages you are reading.
 

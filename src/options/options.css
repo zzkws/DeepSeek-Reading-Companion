@@ -38,6 +38,7 @@ button.primary:hover:not(:disabled) { color: #fff; filter: brightness(1.08); }
 .actions { display: flex; gap: 10px; align-items: center; margin-top: 28px; }
 .status { font-size: 13px; }
 .status.ok { color: var(--ok); }
+.status.muted { color: var(--muted); }
 .status.err { color: var(--danger); }
 
 .speech-panel { padding: 20px; margin: 0 0 28px; border: 1px solid var(--border); border-radius: 16px; }

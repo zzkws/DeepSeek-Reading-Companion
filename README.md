@@ -86,7 +86,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 5. 指导我加载（这一步要我自己在 Chrome 里点，你没法替我完成）
    - 让我打开 chrome://extensions，开启右上角的「开发者模式」，点「加载已解压的扩展程序」，选第 4 步的目录。
    - 设置页会自动打开。我会自己在那里填 DeepSeek API Key（https://platform.deepseek.com/api_keys），点「测试
-     连接」再保存。不要让我把 Key 发给你，也不要把它写进任何文件。
+     连接」（设置会自动保存）。不要让我把 Key 发给你，也不要把它写进任何文件。
    - 提醒我留在设置页，等发音模型下载完（约 92 MB）。
 
 6. 验证
@@ -108,7 +108,7 @@ DeepSeek 伴读是一个 Chrome 扩展，陪你读英文网页和论文 PDF。�
 
 1. 从[最新版本](https://github.com/zzkws/DeepSeek-Reading-Companion/releases/latest)下载 `deepseek-reading-companion.zip`，解压到一个固定的目录。
 2. 打开 `chrome://extensions`，开启右上角的「开发者模式」，点「加载已解压的扩展程序」，选择解压后的目录。
-3. 设置页会自动打开：填入 API Key，测试连接并保存。发音模型的下载进度也显示在这里。
+3. 设置页会自动打开：填入 API Key，点「测试连接」确认可用。设置改动会自动保存。发音模型的下载进度也显示在这里。
 
 升级时，用新文件替换原目录里的文件，在 `chrome://extensions` 里重新加载扩展，再刷新已经打开的阅读页面。
 

@@ -1,5 +1,5 @@
 import { render } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { loadSettings, saveSettings } from "../shared/settings";
 import { applyTheme } from "../shared/theme";
 import { DEFAULT_SETTINGS, type ModelId, type Settings } from "../shared/types";
@@ -11,6 +11,10 @@ function Options() {
   const [loaded, setLoaded] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [testing, setTesting] = useState(false);
+  const [saved, setSaved] = useState(false);
+  /** 还没写进存储的改动；输入框和滑块会连续触发，攒一下再写 */
+  const pending = useRef<Partial<Settings>>({});
+  const timer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     void loadSettings().then((v) => {
@@ -19,18 +23,36 @@ function Options() {
     });
   }, []);
 
-  // 选中即在本页预览；点「保存」后卡片、阅读器等其它界面才跟着变
+  // 本页立即换色；写入存储后，卡片、阅读器等其它界面经 storage.onChanged 跟着变
   useEffect(() => applyTheme(document.documentElement, s.theme), [s.theme]);
 
-  const patch = (p: Partial<Settings>) => {
+  /** 把攒着的改动写进存储，各处界面随即生效 */
+  function flush() {
+    clearTimeout(timer.current);
+    const p = pending.current;
+    pending.current = {};
+    if (Object.keys(p).length) void saveSettings(p).then(() => setSaved(true));
+  }
+
+  // 关掉或切走页面时，把还没写入的改动立刻存下
+  useEffect(() => {
+    window.addEventListener("pagehide", flush);
+    return () => window.removeEventListener("pagehide", flush);
+  }, []);
+
+  /**
+   * 改动即保存。下拉框立即写入；输入框和滑块（typing = true）停顿 400ms 再写，
+   * 免得每敲一个字都让所有打开的网页重新读一遍设置。
+   */
+  const patch = (p: Partial<Settings>, typing = false) => {
     setS((prev) => ({ ...prev, ...p }));
     setMsg(null);
+    setSaved(false);
+    pending.current = { ...pending.current, ...p };
+    clearTimeout(timer.current);
+    if (typing) timer.current = setTimeout(flush, 400);
+    else flush();
   };
-
-  async function save() {
-    await saveSettings(s);
-    setMsg({ ok: true, text: "已保存" });
-  }
 
   async function test() {
     setTesting(true);
@@ -75,7 +97,8 @@ function Options() {
           type="password"
           placeholder="sk-..."
           value={s.apiKey}
-          onInput={(e) => patch({ apiKey: (e.target as HTMLInputElement).value })}
+          onInput={(e) => patch({ apiKey: (e.target as HTMLInputElement).value }, true)}
+          onBlur={flush}
         />
         <div class="hint">
           在 <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noreferrer">
@@ -149,9 +172,10 @@ function Options() {
           max="100"
           step="1"
           value={s.speechVolume}
-          onInput={(e) => patch({ speechVolume: Number((e.target as HTMLInputElement).value) })}
+          onInput={(e) => patch({ speechVolume: Number((e.target as HTMLInputElement).value) }, true)}
+          onChange={flush}
         />
-        <div class="hint">只调节 Kokoro 发音，不影响网页或 PDF 的其他声音。保存后生效。</div>
+        <div class="hint">只调节 Kokoro 发音，不影响网页或 PDF 的其他声音。改动立即生效。</div>
       </div>
 
       <div class="field">
@@ -160,7 +184,8 @@ function Options() {
           id="base"
           type="text"
           value={s.baseUrl}
-          onInput={(e) => patch({ baseUrl: (e.target as HTMLInputElement).value })}
+          onInput={(e) => patch({ baseUrl: (e.target as HTMLInputElement).value }, true)}
+          onBlur={flush}
         />
         <div class="hint">默认 https://api.deepseek.com。改动后需同步修改 manifest 的 host_permissions。</div>
       </div>
@@ -227,13 +252,14 @@ function Options() {
       </div>
 
       <div class="actions">
-        <button class="primary" type="button" onClick={() => void save()}>
-          保存
-        </button>
         <button type="button" onClick={() => void test()} disabled={testing || !s.apiKey.trim()}>
           {testing ? "测试中…" : "测试连接"}
         </button>
-        {msg && <span class={`status ${msg.ok ? "ok" : "err"}`}>{msg.text}</span>}
+        {msg ? (
+          <span class={`status ${msg.ok ? "ok" : "err"}`}>{msg.text}</span>
+        ) : (
+          <span class="status muted">{saved ? "已自动保存" : "改动会自动保存"}</span>
+        )}
       </div>
     </div>
   );
