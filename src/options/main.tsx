@@ -156,8 +156,8 @@ function Options() {
             patch({ speechTrigger: (e.target as HTMLSelectElement).value as Settings["speechTrigger"] })
           }
         >
-          <option value="manual">点发音按钮时再生成（默认）</option>
-          <option value="selection">选中文字时就提前生成，点按钮即播</option>
+          <option value="manual">点发音按钮时再生成</option>
+          <option value="selection">选中文字时就提前生成，点按钮即播（默认）</option>
         </select>
         <div class="hint">两种都要点卡片上的发音按钮才会出声（浏览器不允许网页自己发声）。提前生成：点了马上能听，但每次选中都会在本机多算一遍。点击时再生成：更省资源，点了要稍等。</div>
       </div>
@@ -213,12 +213,12 @@ function Options() {
             patch({ placement: (e.target as HTMLSelectElement).value as Settings["placement"] })
           }
         >
-          <option value="follow">贴着选中的词</option>
-          <option value="right">固定在视口右侧（默认）</option>
+          <option value="follow">贴着选中的词（默认）</option>
+          <option value="right">固定在视口右侧</option>
         </select>
         <div class="hint">
-          固定在视口右侧：卡片靠窗口右边，与选中的那一行同高。
           贴着选中的词：从词的右侧展开，正文首行与选中的字上缘齐平；右侧放不下会先压窄，再整体往左挤。
+          固定在视口右侧：卡片靠窗口右边，与选中的那一行同高。
         </div>
       </div>
 
