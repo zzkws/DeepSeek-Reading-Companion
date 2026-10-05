@@ -148,7 +148,7 @@ function Options() {
       </div>
 
       <div class="field">
-        <label for="speech-trigger">发音触发</label>
+        <label for="speech-trigger">发音生成时机</label>
         <select
           id="speech-trigger"
           value={s.speechTrigger}
@@ -156,10 +156,10 @@ function Options() {
             patch({ speechTrigger: (e.target as HTMLSelectElement).value as Settings["speechTrigger"] })
           }
         >
-          <option value="manual">点击按钮播放（当前）</option>
-          <option value="selection">选中后自动生成（点击按钮播放）</option>
+          <option value="manual">点发音按钮时再生成（默认）</option>
+          <option value="selection">选中文字时就提前生成，点按钮即播</option>
         </select>
-        <div class="hint">自动模式会在选中后后台生成并缓存声音，不强制自动播放；这样不会被浏览器的自动播放策略打断。</div>
+        <div class="hint">两种都要点卡片上的发音按钮才会出声（浏览器不允许网页自己发声）。提前生成：点了马上能听，但每次选中都会在本机多算一遍。点击时再生成：更省资源，点了要稍等。</div>
       </div>
 
       <div class="field">
