@@ -1,6 +1,6 @@
 {
   "name": "deepseek-reading-companion",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "选中英文词句，让 DeepSeek 结合前后文，沿着原文直接解释。",
