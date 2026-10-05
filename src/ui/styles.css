@@ -29,7 +29,7 @@
 /* 聚焦环沿整张卡片的外轮廓，输入框内部不再叠第二圈边框。 */
 .sn-card:has(.sn-ask input:focus) {
   border-color: var(--sn-accent);
-  outline: 1px solid var(--sn-accent);
+  outline: 2px solid var(--sn-accent);
   outline-offset: 0;
 }
 
